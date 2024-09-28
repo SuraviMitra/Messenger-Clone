@@ -1,19 +1,13 @@
-import type { Metadata } from "next";
-import localFont from "next/font/local";
+import ToasterContext from "./context/ToasterContext";
+
 import "./globals.css";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+import { Inter } from 'next/font/google';
 
-export const metadata: Metadata = {
+const inter = Inter({ subsets: ['latin'] })
+
+
+export const metadata = {
   title: "Messenger Clone",
   description: "Messenger Clone",
 };
@@ -26,8 +20,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+        className={inter.className}>
+          <ToasterContext />
         {children}
       </body>
     </html>
