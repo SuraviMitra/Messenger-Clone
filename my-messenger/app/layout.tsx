@@ -1,3 +1,4 @@
+import AuthContext from "./context/AuthContext";
 import ToasterContext from "./context/ToasterContext";
 
 import "./globals.css";
@@ -14,16 +15,18 @@ export const metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
       <body
         className={inter.className}>
+          <AuthContext>
           <ToasterContext />
-        {children}
+          {children}
+          </AuthContext>
       </body>
     </html>
-  );
+  )
 }
